@@ -4,18 +4,23 @@ def limpiarVentana():
     for widget in ventana.winfo_children():
         widget.destroy()
 
+def volver():
+    limpiarVentana()
+    mostrarMenu()
+
 def sumaDosNumeros():
     limpiarVentana()
     
+    botonvolver = tk.Button(ventana, text = "Volver", font = ("Comic Sans MS", 14, "bold"), bg=("white"), fg=("green"), activebackground=("yellow"), width = 10, command=volver)
+    botonvolver.pack(pady=20)
+
+    
     label = tk.Label(ventana, text = "Ingrese el primer número", font = ("Comic Sans MS", 18), bg=("lightgreen"), fg=("green"))
-    label.pack(pady = 20)
+    label.pack(pady = 10)
     campo1 = tk.Entry(ventana)
     campo1.pack(pady = 10)
-    num1=float(campo1.get())
-    #Sigo sin poder pasar string a float
-    
+
     campo1.bind("<Return>", lambda event: campo2.focus_set())
-    
     
     label = tk.Label(ventana, text = "Ingrese el segundo número", font = ("Comic Sans MS", 18), bg=("lightgreen"), fg=("green"))
     label.pack(pady = 20)
@@ -23,10 +28,119 @@ def sumaDosNumeros():
     campo2.pack(pady = 10)
 
     def suma():
-        res=num1+num2
-
+        
+        num1=float(campo1.get())
+        num2=float(campo2.get())
+        res=str(num1+num2)
+        label = tk.Label(ventana, text = (res), font = ("Comic Sans MS", 20), bg=("lightgreen"), fg=("green"))
+        label.pack(pady = 10) 
+        
     botonsuma = tk.Button(ventana, text = "Sumar", font = ("Comic Sans MS", 14, "bold"), bg=("white"), fg=("green"), activebackground=("yellow"), width = 20, command=suma)
     botonsuma.pack(pady=10)
+
+    label = tk.Label(ventana, text = (res), font = ("Comic Sans MS", 14), bg=("lightgreen"), fg=("green"))
+    label.pack(pady = 10)                     
+
+    botonvolver = tk.Button(ventana, text = "Volver", font = ("Comic Sans MS", 14, "bold"), bg=("white"), fg=("green"), activebackground=("yellow"), width = 20, command=volver)
+    botonvolver.pack(pady=10)
+
+def restaDosNumeros():
+    limpiarVentana()
+    
+    botonvolver = tk.Button(ventana, text = "Volver", font = ("Comic Sans MS", 14, "bold"), bg=("white"), fg=("green"), activebackground=("yellow"), width = 10, command=volver)
+    botonvolver.pack(pady=20)
+    
+    label = tk.Label(ventana, text = "Ingrese el primer número", font = ("Comic Sans MS", 18), bg=("lightgreen"), fg=("green"))
+    label.pack(pady = 10)
+    campo1 = tk.Entry(ventana)
+    campo1.pack(pady = 10)
+
+    campo1.bind("<Return>", lambda event: campo2.focus_set())
+    
+    label = tk.Label(ventana, text = "Ingrese el segundo número", font = ("Comic Sans MS", 18), bg=("lightgreen"), fg=("green"))
+    label.pack(pady = 20)
+    campo2 = tk.Entry(ventana)
+    campo2.pack(pady = 10)
+
+    def resta():
+        
+        num1=float(campo1.get())
+        num2=float(campo2.get())
+        res=str(num1-num2)
+        label = tk.Label(ventana, text = (res), font = ("Comic Sans MS", 20), bg=("lightgreen"), fg=("green"))
+        label.pack(pady = 10) 
+        
+    botonresta = tk.Button(ventana, text = "Restar", font = ("Comic Sans MS", 14, "bold"), bg=("white"), fg=("green"), activebackground=("yellow"), width = 20, command=resta)
+    botonresta.pack(pady=10)
+
+    label = tk.Label(ventana, text = (res), font = ("Comic Sans MS", 14), bg=("lightgreen"), fg=("green"))
+    label.pack(pady = 10)  
+
+
+def multiplicacionDosNumeros():
+    limpiarVentana()
+
+    botonvolver = tk.Button(ventana, text = "Volver", font = ("Comic Sans MS", 14, "bold"), bg=("white"), fg=("green"), activebackground=("yellow"), width = 10, command=volver)
+    botonvolver.pack(pady=20)
+    
+    label = tk.Label(ventana, text = "Ingrese el primer número", font = ("Comic Sans MS", 18), bg=("lightgreen"), fg=("green"))
+    label.pack(pady = 10)
+    campo1 = tk.Entry(ventana)
+    campo1.pack(pady = 10)
+
+    campo1.bind("<Return>", lambda event: campo2.focus_set())
+    
+    label = tk.Label(ventana, text = "Ingrese el segundo número", font = ("Comic Sans MS", 18), bg=("lightgreen"), fg=("green"))
+    label.pack(pady = 20)
+    campo2 = tk.Entry(ventana)
+    campo2.pack(pady = 10)
+
+    def multiplicar():
+        
+        num1=float(campo1.get())
+        num2=float(campo2.get())
+        res=str(num1*num2)
+        label = tk.Label(ventana, text = (res), font = ("Comic Sans MS", 20), bg=("lightgreen"), fg=("green"))
+        label.pack(pady = 10) 
+        
+    botonmultiplicar = tk.Button(ventana, text = "Multiplicar", font = ("Comic Sans MS", 14, "bold"), bg=("white"), fg=("green"), activebackground=("yellow"), width = 20, command=multiplicar)
+    botonmultiplicar.pack(pady=10)
+
+    label = tk.Label(ventana, text = (res), font = ("Comic Sans MS", 14), bg=("lightgreen"), fg=("green"))
+    label.pack(pady = 10)  
+
+
+def dividirDosNumeros():
+    limpiarVentana()
+    
+    botonvolver = tk.Button(ventana, text = "Volver", font = ("Comic Sans MS", 14, "bold"), bg=("white"), fg=("green"), activebackground=("yellow"), width = 10, command=volver)
+    botonvolver.pack(pady=20)
+    
+    label = tk.Label(ventana, text = "Ingrese el primer número", font = ("Comic Sans MS", 18), bg=("lightgreen"), fg=("green"))
+    label.pack(pady = 10)
+    campo1 = tk.Entry(ventana)
+    campo1.pack(pady = 10)
+
+    campo1.bind("<Return>", lambda event: campo2.focus_set())
+    
+    label = tk.Label(ventana, text = "Ingrese el segundo número", font = ("Comic Sans MS", 18), bg=("lightgreen"), fg=("green"))
+    label.pack(pady = 20)
+    campo2 = tk.Entry(ventana)
+    campo2.pack(pady = 10)
+
+    def dividir():
+        
+        num1=float(campo1.get())
+        num2=float(campo2.get())
+        res=str(num1/num2)
+        label = tk.Label(ventana, text = (res), font = ("Comic Sans MS", 20), bg=("lightgreen"), fg=("green"))
+        label.pack(pady = 10) 
+        
+    botondividir = tk.Button(ventana, text = "Dividir", font = ("Comic Sans MS", 14, "bold"), bg=("white"), fg=("green"), activebackground=("yellow"), width = 20, command=dividir)
+    botondividir.pack(pady=10)
+
+    label = tk.Label(ventana, text = (res), font = ("Comic Sans MS", 14), bg=("white"), relief=("raised"), fg=("green"))
+    label.pack(pady = 10)  
 
 
 def mostrarMenu():
@@ -38,16 +152,15 @@ def mostrarMenu():
     boton1 = tk.Button(ventana, text = "Sumar", font = ("Comic Sans MS", 14), bg=("white"), fg=("green"), activebackground=("yellow"), relief=("raised"), width = 50, command=sumaDosNumeros)
     boton1.pack(pady=10)
     
-    boton2 = tk.Button(ventana, text = "Restar", font = ("Comic Sans MS", 14), bg=("white"), fg=("green"), activebackground=("yellow"), relief=("raised"), width = 50, command="accion")
+    boton2 = tk.Button(ventana, text = "Restar", font = ("Comic Sans MS", 14), bg=("white"), fg=("green"), activebackground=("yellow"), relief=("raised"), width = 50, command=restaDosNumeros)
     boton2.pack(pady=10)
     
-    boton3 = tk.Button(ventana, text = "Multiplicar", font = ("Comic Sans MS", 14), bg=("white"), fg=("green"), activebackground=("yellow"), relief=("raised"), width = 50, command="accion")
+    boton3 = tk.Button(ventana, text = "Multiplicar", font = ("Comic Sans MS", 14), bg=("white"), fg=("green"), activebackground=("yellow"), relief=("raised"), width = 50, command=multiplicacionDosNumeros)
     boton3.pack(pady=10)
     
-    boton4 = tk.Button(ventana, text = "Dividir", font = ("Comic Sans MS", 14), bg=("white"), fg=("green"), activebackground=("yellow"), relief=("raised"), width = 50, command="accion")
+    boton4 = tk.Button(ventana, text = "Dividir", font = ("Comic Sans MS", 14), bg=("white"), fg=("green"), activebackground=("yellow"), relief=("raised"), width = 50, command=dividirDosNumeros)
     boton4.pack(pady=10)
 
-        
 
 def main():
     global ventana
